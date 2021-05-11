@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória játék</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/23623ee762.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Memória Játék</h1>
+        </header>
+
+        <section class="score-board">
+            <ul class="stars">
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+            </ul>
+
+            <span class="moves">0</span> Lépés
+            <div class="timer"></div>
+
+            <div class="restart" onclick="startGame()">
+                <i class="fas fa-retweet"></i>
+            </div>
+        </section>
+
+        <ul class="deck" id="card-deck">
+
+            <li class="card match" type="ring">
+                <i class="fas fa-ring"></i>
+            </li>
+            <li class="card" type="wizard-hat">
+                <i class="fas fa-hat-wizard"></i>
+            </li>
+            <li class="card" type="cat">
+                <i class="fas fa-cat"></i>
+            </li>
+            <li class="card" type="dungeon">
+                <i class="fas fa-dungeon"></i>
+            </li>
+            <li class="card" type="mountain">
+                <i class="fas fa-mountain"></i>
+            </li>
+            <li class="card" type="dragon">
+                <i class="fas fa-dragon"></i>
+            </li>
+            <li class="card" type="scroll">
+                <i class="fas fa-scroll"></i>
+            </li>
+            <li class="card" type="book">
+                <i class="fas fa-book-dead"></i>
+            </li>
+            <li class="card" type="cube">
+                <i class="fas fa-dice-d6"></i>
+            </li>
+            <li class="card" type="coffee">
+                <i class="fas fa-coffee"></i>
+            </li>
+            <li class="card match" type="ring">
+                <i class="fas fa-ring"></i>
+            </li>
+            <li class="card" type="wizard-hat">
+                <i class="fas fa-hat-wizard"></i>
+            </li>
+            <li class="card" type="cat">
+                <i class="fas fa-cat"></i>
+            </li>
+            <li class="card" type="dungeon">
+                <i class="fas fa-dungeon"></i>
+            </li>
+            <li class="card" type="mountain">
+                <i class="fas fa-mountain"></i>
+            </li>
+            <li class="card" type="dragon">
+                <i class="fas fa-dragon"></i>
+            </li>
+            <li class="card open show" type="scroll">
+                <i class="fas fa-scroll"></i>
+            </li>
+            <li class="card disabled" type="book">
+                <i class="fas fa-book-dead"></i>
+            </li>
+            <li class="card" type="cube">
+                <i class="fas fa-dice-d6"></i>
+            </li>
+            <li class="card" type="coffee">
+                <i class="fas fa-coffee"></i>
+            </li>
+        </ul>
+
+        <div class="overlay" id="popup1">
+            <div class="popup">
+                <h2>Gratulálok! 😄</h2>
+                <a href="#" class="close"><i class="far fa-times-circle"></i></a>
+                <div class="content-1">
+                    Gratulálok, nyertél! 😄🎉
+                </div>
+                <div class="content-2">
+                    <p><span id="finalMove"> </span> lépést tettél.</p>
+                    <p>Az időd: <span id="totalTime"></span></p>
+                    <p>Csillagok: <span id="starRating"></span></p>
+                </div>
+                <button id="play-again" onclick="playAgain()">
+                    Játssz újra! 😀</a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="memoryCard.js"></script>
+</body>
+</html>

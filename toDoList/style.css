@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+*,
+::after,
+::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.section-center {
+  background: white;
+  border-radius: 0.5rem;;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s linear;
+  padding: 2rem;
+}
+.section-center:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.alert {
+  margin-bottom: 1rem;
+  height: 1.25rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  letter-spacing: 0.25rem;
+  text-transform: capitalize;
+}
+.alert-danger {
+  color: #721c24;
+  background: #f8d7da;
+}
+.alert-success {
+  color: #155724;
+  background: #d4edda;
+}
+.to-do-form h3 {
+  color: #063251;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+.form-input {
+  display: flex;
+  justify-content: center;
+}
+#to-do {
+  padding: 0.25rem;
+  padding-left: 1rem;
+  background: #f1f5f8;
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+  border-color: transparent;
+  font-size: 1rem;
+  flex: 1 0 auto;
+  color: #617d98;
+}
+#to-do::placeholder {
+  font-family: "Open Sans", sans-serif;
+  color: #617d98;
+}
+.submit-btn {
+  background: #a5d5f8;
+  border-color: transparent;
+  flex: 0 0 5rem;
+  display: grid;
+  align-items: center;
+  padding: 0.25rem;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  border-top-right-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+  cursor: pointer;
+  content: #617d98;
+  transition: all 0.5s linear;
+  font-size: 0.85rem;
+}
+.submit-btn:hover {
+  background: #49a6e9;
+  color: white
+}
+.to-do-container {
+  margin-top: 2rem;
+  transition: all 0.5s linear;
+  visibility: hidden;
+}
+.show-container {
+  visibility: visible;
+}
+.to-do-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  transition: all 0.5s linear;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+}
+.to-do-item:hover {
+  color: #617d98;
+  background: #f1f5f8;
+}
+.to-do-item:hover .title {
+  color: #617d98;
+}
+.to-do-item.done{
+  transition: 0.5s ease-out;
+  background-color: #47d147;
+}
+.title {
+  margin-bottom: 0;
+  color: #102a42;
+  letter-spacing: 2px;
+  transition: all 0.5s linear;
+}
+.title.done{
+  text-decoration: line-through;
+  color: #617d98;
+}
+.done-btn,
+.edit-btn,
+.delete-btn {
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  font-size: 0.7rem;
+  margin: 0 0.15rem;
+  transition: all 0.5s linear;
+}
+.done-btn {
+  color: #25bb32;
+}
+.done-btn:hover {
+  color: #00802b;
+}
+.edit-btn {
+  color: black;
+}
+.edit-btn:hover {
+  color: #617d98;
+}
+.delete-btn {
+  color: #e66b6b;
+}
+.delete-btn:hover {
+  color: #bb2525;
+}
+.clear-btn {
+  text-transform: capitalize;
+  width: 10rem;
+  height: 1.5rem;
+  display: grid;
+  align-items: center;
+  background: transparent;
+  border-color: transparent;
+  color: #e66b6b;
+  margin: 0 auto;
+  font-size: 0.85rem;
+  letter-spacing: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  margin-top: 1.25rem;
+  font-weight: 600;
+}
+.clear-btn:hover {
+  color: #bb2525;
+}
+
+@media screen and (min-width: 768px){
+  .section-center{
+    margin: 1rem 7rem;
+  }
+  .to-do-form h3 {
+    font-size: 2rem;
+  }
+  #to-do {
+    font-size: 1.5rem;
+  }
+  .submit-btn {
+    font-size: 1.25rem;
+  }.title {
+    font-size: 1.5rem;
+  }
+  .done-btn,
+  .edit-btn,
+  .delete-btn {
+    font-size: 1rem;
+  }
+  .clear-btn {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .section-center{
+    margin: 2rem 20rem;
+  }
+  .to-do-form h3 {
+    font-size: 2.5rem;
+  }
+  #to-do {
+    font-size: 2rem;
+  }
+  .submit-btn {
+    font-size: 1.5rem;
+  }.title {
+    font-size: 2rem;
+  }
+  .done-btn,
+  .edit-btn,
+  .delete-btn {
+    font-size: 1.5rem;
+  }
+  .clear-btn {
+    width: 13rem;
+    font-size: 1.5rem;
+  }
+}

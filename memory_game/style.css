@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+/* html {
+  box-sizing: border-box;
+} */
+
+/* *,
+*::before,
+*::after {
+  box-sizing: inherit;
+} */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url(images/bg2.jpg) no-repeat center;
+  background-size: cover;
+  font-size: 16px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Crimson Text', serif;
+  font-size: 40px;
+  color: coral;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  margin-left: 0.3rem;
+}
+
+.deck {
+  background: url(images/board.jpg) no-repeat;
+  background-size: cover;
+  width: 85%;
+  box-shadow: 8px 10px 9px rgba(46, 61, 73, 0.5);
+  border-radius: 5px;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.deck .card {
+  height: 10rem !important;
+  width: 7rem !important;
+  margin: 0.2rem 0.2rem;
+  background: url(images/card_back.jpg) center;
+  background-size: 100%;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+  transform: rotateY(0);
+  background: #02b3e4;
+  cursor: default;
+  animation-name: flipInY;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  animation-duration: 0.75s;
+}
+
+.deck .card.show {
+  font-size: 33px;
+}
+
+.deck .card.match {
+  cursor: default;
+  background: #c4a416;
+  font-size: 33px;
+  animation-name: rubberBand;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  animation-duration: 0.75s;
+}
+
+.deck .card.unmatched {
+  animation-name: pulse;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  animation-duration: 0.75s;
+  background: #e2043b;
+}
+
+.deck .card.disabled {
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.score-board {
+  text-align: left;
+  margin-bottom: 10px;
+  color: #02b3e4;
+}
+
+.score-board .stars {
+  margin: 0 5px 0 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.score-board .stars li {
+  list-style: none;
+  display: inline-block;
+}
+
+.score-board .restart {
+  cursor: pointer;
+  float: right;
+}
+
+.fa-star {
+  color: #ffd700;
+}
+.timer {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: url(images/tavernDoor.jpg) no-repeat;
+  background-size: 60vw 50vh;
+  background-position: center;
+  border-radius: 5px;
+  width: 85%;
+  height: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #cc9900;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #1a88aa;
+}
+
+.popup .close:hover {
+  color: #00ccff;
+}
+
+.popup .content-1,
+.content-2 {
+  max-height: 50%;
+  overflow: auto;
+  text-align: center;
+  font-size: 25px;
+  color: #009933;
+}
+
+.popup .content-1 {
+  margin-top: 5rem;
+}
+
+.show {
+  visibility: visible !important;
+  opacity: 100 !important;
+}
+
+#starRating li {
+  display: inline-block;
+}
+
+#play-again {
+  background-color: #141214;
+  border: #141214 solid;
+  padding: 0.7rem 1rem;
+  font-size: 1.1rem;
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+#play-again:hover {
+  opacity: 1;
+}
+
+@keyframes flipInY {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+  to {
+    transform: perspective(400px);
+  }
+}
+
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@media (max-width: 320px) {
+  .deck {
+    width: 85%;
+  }
+
+  .deck .card {
+    height: 4.7rem;
+    width: 4.7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    font-size: 22px;
+  }
+
+  .deck {
+    width: 660px;
+    height: 680px;
+  }
+
+  .deck .card {
+    height: 110px;
+    width: 110px;
+  }
+
+  .popup {
+    width: 60%;
+  }
+}
